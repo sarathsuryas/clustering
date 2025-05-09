@@ -23,7 +23,7 @@ if (cluster.isMaster) {
         if (req.url === '/api1') {
             console.log(`Worker ${process.pid} handling APA1`);
             let count = 0;
-            const maxCount = 1e10; // Simulate heavy computation
+            const maxCount = 1e9; // Simulate heavy computation
             while (count < maxCount) count++;
             res.writeHead(200);
             res.end('First APA completed');
