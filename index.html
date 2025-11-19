@@ -1,20 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <div id="rightClick">
-    here right click not allowed
+<div id="outer">
+  <div id="inner">
+    <button id="btn">Click Me</button>
   </div>
-  <script>
-    const right = document.getElementById('rightClick')
-    right.addEventListener('contextmenu',(e)=>{
-      e.preventDefault()
-      alert('right click not allowed')
-    })
-  </script>
-</body>
-</html>
+</div>
+
+<script>
+  document.getElementById('outer').addEventListener('click', () => {
+    console.log('Outer DIV (capturing)');
+  }, true); // 👈 'true' means capture phase
+
+  document.getElementById('inner').addEventListener('click', () => {
+    console.log('Inner DIV (capturing)');
+  }, true);
+
+  document.getElementById('btn').addEventListener('click', () => {
+    console.log('Button clicked');
+  });
+</script>
